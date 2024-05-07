@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const apiLogger = require("./utils/apiLogger");
 
 const app = express();
 const documentRoutes = require("./routes/document.routes");
@@ -12,6 +13,9 @@ app.use(cors());
 
 // Middleware to parse JSON bodies
 app.use(express.json());
+
+// Middleware to log API hits
+app.use(apiLogger);
 
 // Connect to MongoDB
 

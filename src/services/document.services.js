@@ -11,7 +11,7 @@ const getAllDocuments = async () => {
 };
 
 // Create operation
-const createDocument = async () => {
+const createDocument = async (documentData) => {
   try {
     const document = new Document(documentData);
     const savedDocument = await document.save();
@@ -22,7 +22,7 @@ const createDocument = async () => {
 };
 
 // Read operation
-const getDocumentById = async () => {
+const getDocumentById = async (documentId) => {
   try {
     const document = await Document.findById(documentId);
     if (!document) {
