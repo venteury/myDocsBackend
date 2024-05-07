@@ -3,10 +3,13 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const apiLogger = require("./utils/apiLogger");
+const bodyParser = require("body-parser");
 
 const app = express();
 const documentRoutes = require("./routes/document.routes");
 dotenv.config();
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Middleware to enable CORS
 app.use(cors());
